@@ -1,0 +1,15 @@
+from django.urls import path
+
+from exemplo import views
+
+app_name = 'exemplo'
+
+urlpatterns = [
+    path('', views.ClienteList.as_view(), name='list'),
+    path('create/', views.ClienteCreate.as_view(), name='create'),
+    # Entre o Update e a barra vai vir um parâmetro chamado pk, e ele é do tipo int
+    path('update/<int:pk>/', views.ClienteUpdate.as_view(), name='update'),
+    path('detail/<int:pk>/', views.ClienteDetail.as_view(), name='detail'),
+    path('delete/<int:pk>/', views.ClienteDelete.as_view(), name='delete'),
+]
+
